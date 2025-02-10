@@ -1,4 +1,6 @@
-![Simple Swap](https://github.com/PoeticRainbow/SimpleSwap/blob/1.0/assets/fulllogo-highres.png?raw=true)
+<div align="center">
+    <img alt="SimpleSwap" src="https://github.com/PoeticRainbow/SimpleSwap/blob/1.0/assets/fulllogo-highres.png?raw=true">
+</div>
 
 Making decisions is hard. SimpleSwap lets you swap blocks fast and easily!
 
