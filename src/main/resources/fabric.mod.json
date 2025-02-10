@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleswap",
+  "version": "${version}",
+  "name": "SimpleSwap",
+  "description": "Making decisions is hard. SimpleSwap lets you swap blocks fast and easily!\n\nThis mod may be considered cheating to some server owners. Use at your own discretion.",
+  "authors": ["PoeticRainbow"],
+  "contact": {
+    "homepage": "https://modrinth.com/project/simpleswap",
+    "sources": ""
+  },
+  "license": "GNU GPLv3",
+  "icon": "assets/simpleswap/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "poeticrainbow.simpleswap.SimpleSwap"
+    ],
+    "main": [
+      "poeticrainbow.simpleswap.SimpleSwap"
+    ]
+  },
+  "mixins": [
+    "simpleswap.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
