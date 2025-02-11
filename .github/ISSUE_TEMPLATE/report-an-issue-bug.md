@@ -1,7 +1,7 @@
 ---
 name: Report an Issue/Bug
-about: Report an Issue
-title: "[Bug] Short Issue Description"
+about: If you found a bug or an issue with the mod, report it here.
+title: "[Bug] Short issue description"
 labels: bug
 assignees: ''
 
