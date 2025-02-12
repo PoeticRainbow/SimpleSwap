@@ -5,7 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.event.client.player.ClientPlayerBlockBreakEvents;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.item.BlockItem;
@@ -32,6 +31,7 @@ public class SimpleSwap implements ModInitializer, ClientModInitializer {
     @Override
     public void onInitializeClient() {
         SIMPLE_SWAP_KEY = KeyBindingHelper.registerKeyBinding(SIMPLE_SWAP_KEY);
+
 
         ClientPlayerBlockBreakEvents.AFTER.register((world, player, pos, state) -> {
             if (SIMPLE_SWAP_KEY.isPressed() && world.isClient()) {
