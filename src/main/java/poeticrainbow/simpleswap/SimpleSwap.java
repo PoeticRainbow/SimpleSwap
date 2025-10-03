@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class SimpleSwap implements ModInitializer, ClientModInitializer {
-    public static KeyBinding SIMPLE_SWAP_KEY = new KeyBinding("key.simpleswap.simpleSwap", GLFW.GLFW_KEY_LEFT_ALT, KeyBinding.GAMEPLAY_CATEGORY);
+    public static KeyBinding SIMPLE_SWAP_KEY = new KeyBinding("key.simpleswap.simpleSwap", GLFW.GLFW_KEY_LEFT_ALT, KeyBinding.Category.GAMEPLAY);
     public static List<BlockHitResult> BLOCKS_TO_BE_SWAPPED = new ArrayList<>();
 
     @Override
