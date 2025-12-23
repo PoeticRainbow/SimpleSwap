@@ -55,7 +55,9 @@ public class SimpleSwap implements ModInitializer, ClientModInitializer {
                 Iterator<BlockHitResult> iterator = BLOCKS_TO_BE_SWAPPED.iterator();
                 iterator.forEachRemaining(target -> {
                     Item mainhandItem = client.player.getMainHandStack().getItem();
-                    client.player.playSoundToPlayer(SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.4f, 0.6f);
+
+                    if (client.world != null)
+                        client.world.playSoundClient(SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.4f, 0.6f);
 
                     Hand hand = mainhandItem instanceof BlockItem ? Hand.MAIN_HAND : Hand.OFF_HAND;
 
