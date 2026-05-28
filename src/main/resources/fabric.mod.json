@@ -7,16 +7,13 @@
   "authors": ["PoeticRainbow"],
   "contact": {
     "homepage": "https://modrinth.com/project/simpleswap",
-    "sources": ""
+    "sources": "https://github.com/PoeticRainbow/SimpleSwap"
   },
   "license": "GNU GPLv3",
   "icon": "assets/simpleswap/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "poeticrainbow.simpleswap.SimpleSwap"
-    ],
-    "main": [
       "poeticrainbow.simpleswap.SimpleSwap"
     ]
   },
@@ -25,7 +22,7 @@
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": ">=${minecraft_version}"
   }
 }
