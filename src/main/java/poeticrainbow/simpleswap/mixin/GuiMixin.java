@@ -2,7 +2,6 @@ package poeticrainbow.simpleswap.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.Hud;
 import net.minecraft.resources.Identifier;
@@ -17,10 +16,10 @@ public class GuiMixin {
     @Shadow @Final private static Identifier CROSSHAIR_SPRITE;
 
     @WrapOperation(
-        method = "extractCrosshair(Lnet/minecraft/client/gui/GuiGraphicsExtractor;Lnet/minecraft/client/DeltaTracker;)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V")
+        method = "extractCrosshair",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V")
     )
-    private void simpleswap$swap_crosshair(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
+    private void simpleswap$swap_crosshair(GuiGraphicsExtractor instance, com.mojang.renderpearl.api.pipeline.RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
         if (SimpleSwap.SIMPLE_SWAP_KEY.isDown() && location.equals(CROSSHAIR_SPRITE)) {
             original.call(instance, renderPipeline, SimpleSwap.SWAP_CROSSHAIR, x, y, width, height);
         } else {

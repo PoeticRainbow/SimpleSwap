@@ -1,5 +1,6 @@
 package poeticrainbow.simpleswap;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
@@ -12,9 +13,9 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class SimpleSwap implements ClientModInitializer {
     public static final Identifier SWAP_CROSSHAIR = Identifier.fromNamespaceAndPath("simpleswap", "blockswap");
-    public static KeyMapping SIMPLE_SWAP_KEY = new KeyMapping("key.simpleswap.simpleSwap", GLFW.GLFW_KEY_LEFT_ALT, KeyMapping.Category.GAMEPLAY);
+    public static KeyMapping SIMPLE_SWAP_KEY = new KeyMapping("key.simpleswap.simpleSwap", InputConstants.KEY_LALT, KeyMapping.Category.GAMEPLAY);
     public static List<BlockHitResult> BLOCKS_TO_BE_SWAPPED = new ArrayList<>();
 
     @Override
@@ -59,7 +60,7 @@ public class SimpleSwap implements ClientModInitializer {
                     InteractionHand hand = mainhandItem instanceof BlockItem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
 
                     client.gameMode.useItemOn(client.player, hand, target);
-                    client.gameRenderer.itemInHandRenderer.itemUsed(hand);
+                    client.player.swing(hand, SwingAnimation.DEFAULT, true);
                 });
                 BLOCKS_TO_BE_SWAPPED = new ArrayList<>();
             }
